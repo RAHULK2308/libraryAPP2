@@ -53,7 +53,7 @@ userRouter.post('/check', function(req,res){
         if(useremail=="rahulkm4002@gmail.com" && userpassword=="abcd"){
             res.redirect('/users/admin')
             console.log('your in admin')
-        }else if(useremail==data.email && userpassword==data.password){
+        }else if(useremail==data?.email && userpassword==data.password){
             res.redirect('/users/home');
             console.log("login Successful");
         }else{
