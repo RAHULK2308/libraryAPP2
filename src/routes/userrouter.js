@@ -7,7 +7,7 @@ function checkUserAuth(req, res, next) {
     if (req.session.user) return next();
     return next(new NotAuthorizedError());
   }
-  
+
 function Router(nav,nav1,nav2){
 
 userRouter.get('/', function(req,res){
@@ -51,6 +51,7 @@ userRouter.post('/add', function(req,res){
 
 userRouter.post('/check',  checkUserAuth, function(req,res){
  
+
     var useremail=req.body.email;
    var userpassword=req.body.password;
     userdata.findOne({email:useremail})
@@ -65,8 +66,20 @@ userRouter.post('/check',  checkUserAuth, function(req,res){
             res.redirect('/users');
             console.log("Incorrect Login attempt");
             
+
         }
+
    })
+   useEffect(() => {
+    fetch('/spotify/is-authenticated')
+      .then(response => response.json())
+      .then(data => {
+        console.log(`authentication status: ${data.status}`)
+        setAuthenticated(data.status)
+        hideLoading()
+      })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 })
 
 userRouter.get('/home', function(req,res){

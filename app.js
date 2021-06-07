@@ -47,7 +47,6 @@ app.get('/',function(req,res){
 
 
 
-
 app.listen(port,()=>{
     console.log("server is ready at" + port);
     console.log("admin- email id:rahulkm4002@gmail.com\npassword: abcd" )
