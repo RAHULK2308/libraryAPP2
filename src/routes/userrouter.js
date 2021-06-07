@@ -5,7 +5,7 @@ userRouter.use(express.urlencoded({extended:true}))
 
 function checkUserAuth(req, res, next) {
     if (req.body.username) return next();
-    return next(new NotAuthorizedError());
+    return next();
   }
 
 function Router(nav,nav1,nav2){
