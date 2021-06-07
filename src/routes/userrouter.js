@@ -3,10 +3,7 @@ const userRouter=express.Router();
 const userdata=require('../model/userdata');
 userRouter.use(express.urlencoded({extended:true}))
 
-function checkUserAuth(req, res, next) {
-    if (req.session.username) return next();
-    return next(new NotAuthorizedError());
-  }
+
 
 function Router(nav,nav1,nav2){
 
@@ -49,7 +46,7 @@ userRouter.post('/add', function(req,res){
 })
 
 
-userRouter.post('/check', checkUserAuth, function(req,res){
+userRouter.post('/check',  function(req,res){
  
 
     var useremail=req.body.email;
