@@ -4,7 +4,7 @@ const userdata=require('../model/userdata');
 userRouter.use(express.urlencoded({extended:true}))
 
 function checkUserAuth(req, res, next) {
-    if (req.session.user) return next();
+    if (req.session.username) return next();
     return next(new NotAuthorizedError());
   }
 
