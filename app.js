@@ -2,6 +2,7 @@ const express=require('express');
 const app=new express();
 methodOverride = require("method-override");
 
+
 const port=process.env.PORT || 4000;
 
 const nav=[{
@@ -33,9 +34,6 @@ app.use(methodOverride("_method"))
 app.use(express.static('./public'));
 app.set('view engine','ejs');
 app.set('views','./src/views');
-
-
-
 app.get('/',function(req,res){
     res.render("index",{
         nav,

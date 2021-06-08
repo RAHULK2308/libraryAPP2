@@ -4,6 +4,19 @@ const userdata=require('../model/userdata');
 userRouter.use(express.urlencoded({extended:true}))
 
 
+const session = require('express-session');
+const flash = require('connect-flash');
+userRouter.use(flash());
+
+userRouter.use(session({
+    secret:'geeksforgeeks',
+    saveUninitialized: true,
+    resave: true
+}));
+
+
+
+  
 
 function Router(nav,nav1,nav2){
 
@@ -26,9 +39,13 @@ userRouter.get('/signup', function(req,res){
    
 })
 
+  
+   
+  
+
 userRouter.post('/add', function(req,res){
   if(req.body.email=="rahulkm4002@gmail.com" && req.body.password=="abcd"){
-      console.log("admin email & password does not use")
+      console.log("admin email & password does not use");
       res.redirect('/users/signup');
   }else{
    
@@ -63,10 +80,10 @@ userRouter.post('/check', function(req,res){
             res.redirect('/users/home');
             console.log("login Successful");
         }else{
-            res.redirect('/users');
+            req.flash('message', 'Incorrect Login attempt');
+            res.send(req.flash('message'));
             console.log("Incorrect Login attempt");
             
-
         }
 
    })
