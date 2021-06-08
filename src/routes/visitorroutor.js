@@ -2,6 +2,7 @@ const express=require('express');
 const visitorRouter=express.Router();
 const Bookdata=require('../model/Bookdata');
 
+//visitor: book related operations
 
 function Router(nav1){
 

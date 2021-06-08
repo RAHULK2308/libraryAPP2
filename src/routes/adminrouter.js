@@ -23,7 +23,7 @@ const upload = multer({
     storage: storage
 }).single("image");
 
-
+//admin related operations
 
 function Router(nav){
 

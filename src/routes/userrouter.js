@@ -3,6 +3,7 @@ const userRouter=express.Router();
 const userdata=require('../model/userdata');
 userRouter.use(express.urlencoded({extended:true}))
 
+//flash setup
 
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -16,7 +17,7 @@ userRouter.use(session({
 
 
 
-  
+  //login&signup related operations
 
 function Router(nav,nav1,nav2){
 
@@ -41,7 +42,7 @@ userRouter.get('/signup', function(req,res){
 
   
    
-  
+  //adding userdata in server
 
 userRouter.post('/add', function(req,res){
   if(req.body.email=="rahulkm4002@gmail.com" && req.body.password=="abcd"){
@@ -65,6 +66,7 @@ userRouter.post('/add', function(req,res){
 
 })
 
+//checking login operations
 
 userRouter.post('/check', function(req,res){
  
@@ -90,6 +92,8 @@ userRouter.post('/check', function(req,res){
 
 })
 
+//geting visitor home page
+
 userRouter.get('/home', function(req,res){
    
     res.render("home",{
@@ -101,6 +105,8 @@ userRouter.get('/home', function(req,res){
 
 })
 
+//return admin home page
+
 userRouter.get('/admin', function(req,res){
    
     res.render("adminhome",{
@@ -110,7 +116,6 @@ userRouter.get('/admin', function(req,res){
 })
 
 })
-
 
 
 return  userRouter;

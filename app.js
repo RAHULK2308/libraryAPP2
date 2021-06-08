@@ -2,6 +2,9 @@ const express=require('express');
 const app=new express();
 methodOverride = require("method-override");
 
+//admin 
+//email:rahulkm4002@gmail.com
+//password:abcd
 
 const port=process.env.PORT || 4000;
 

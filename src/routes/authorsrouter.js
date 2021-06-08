@@ -3,8 +3,9 @@ const express=require('express');
 const authorsRouter=express.Router();
 const  Authorsdata=require('../model/Authorsdata')
 
+//authors related operations 
+
 function Router(nav){
- 
     
 authorsRouter.get('/', function(req,res){
     Authorsdata.find()

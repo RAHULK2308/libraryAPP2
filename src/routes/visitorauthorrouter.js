@@ -3,8 +3,9 @@ const visitorauthorsRouter=express.Router();
 
 const  Authorsdata=require('../model/Authorsdata')
 
-function Router(nav1){
+//visitor: author related operations
 
+function Router(nav1){
 
     
 visitorauthorsRouter.get('/', function(req,res){
