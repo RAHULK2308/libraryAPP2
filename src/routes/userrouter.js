@@ -3,10 +3,7 @@ const userRouter=express.Router();
 const userdata=require('../model/userdata');
 userRouter.use(express.urlencoded({extended:true}))
 
-function checkUserAuth(req, res, next) {
-    if (req.body.username) return next();
-    return next();
-  }
+
 
 function Router(nav,nav1,nav2){
 
@@ -30,7 +27,10 @@ userRouter.get('/signup', function(req,res){
 })
 
 userRouter.post('/add', function(req,res){
-
+  if(req.body.email=="rahulkm4002@gmail.com" && req.body.password=="abcd"){
+      console.log("admin email & password does not use")
+      res.redirect('/users/signup');
+  }else{
    
     var items={
         username:req.body.username,
@@ -43,13 +43,13 @@ userRouter.post('/add', function(req,res){
     console.log(" user record was added");
     res.redirect('/users');
 
-
+  }
 })
 
 })
 
 
-userRouter.post('/check', checkUserAuth, function(req,res){
+userRouter.post('/check', function(req,res){
  
 
     var useremail=req.body.email;
