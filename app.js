@@ -15,8 +15,34 @@ const nav=[{
         link:'/users/signup', name:'signup'
 }];
 
-const nav1=require('./public/js/nav1');
-const nav2=require('./public/js/nav2');
+const nav1=[{
+    link:'/visitorbooks',name:'Books'
+},
+{
+    link:'/visitorauthors', name:'Authors'
+},
+{
+        link:'/', name:'signout'
+
+}];
+
+
+const nav2=[{
+    link:'/books',name:'Books'
+},
+{
+    link:'/authors', name:'Authors'
+},
+{
+    link:'/admin',name:'Add Books'
+},
+{
+    link:'/admin/addauthors', name:' Add Authors'
+},
+{
+        link:'/', name:'signout'
+
+}]
 
 const booksRouter=require('./src/routes/bookrouter')(nav2);
 const adminRouter=require('./src/routes/adminrouter')(nav2);
